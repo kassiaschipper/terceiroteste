@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { desqualificaCandidato } from "../service/terceirotesteService";
+import { AiOutlineUserDelete } from "react-icons/ai";
 
 export default function DesqualificaCandidato() {
   const [codigoCandidato, setCodigoCandidato] = useState();
@@ -35,8 +36,12 @@ export default function DesqualificaCandidato() {
   return (
     <Wrapper>
       <form onSubmit={sendForm}>
-        <label>
-          Desqualicar candidato:
+      <h3>DESQUALIFICAR CANDIDATO</h3>
+      <IconWrapper>
+          <AiOutlineUserDelete color="white" fontSize={"5rem"}></AiOutlineUserDelete>{" "}
+        </IconWrapper>
+        <ContentWrapper>
+        <label>         
           <input
             type="text"
             placeholder="Código do Candidato"
@@ -47,18 +52,53 @@ export default function DesqualificaCandidato() {
           />
         </label>
         <button type="submit" disabled={disabledInput} >Salvar</button>
+        </ContentWrapper>
       </form>
-      
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  width: 22vw;
-  height: 25vh;
+  width: 28vw;
+  height: 35vh;
   border-radius: 1rem;
-  border: 1px solid yellow;
+ 
+  background-color: rgb(185, 17, 25);
 
-  background-color: red;
-  margin: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+
+  h3{
+    text-align: center;
+    margin-top: 0.5rem;
+    color: white;
+  }
 `;
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  input{
+    border: none;
+    border-radius: 2px;
+    margin-bottom:5px;   
+  }
+
+  button{
+    width: 5rem;
+    height: 1.5rem;
+    background-color:white;
+    border: none;
+    border-radius: 5px;
+    
+  }
+`;
+
+ 
+

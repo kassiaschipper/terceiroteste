@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { aprovaCandidato } from "../service/terceirotesteService";
+import { BsPersonCheck } from "react-icons/bs";
 
 export default function AprovaCandidato() {
   const [codigoCandidato, setCodigoCandidato] = useState();
@@ -35,9 +36,13 @@ export default function AprovaCandidato() {
   return (
     <Wrapper>
       <form onSubmit={sendForm}>
+      <h3>APROVAR CANDIDATO</h3>
+      <IconWrapper>
+          <BsPersonCheck color="white" fontSize={"5rem"}></BsPersonCheck>{" "}
+        </IconWrapper>
+        <ContentWrapper>
         <label>
-          Aprovar candidato:
-          <input
+           <input
             type="text"
             placeholder="Código do Candidato"
             value={codigoCandidato}
@@ -47,18 +52,49 @@ export default function AprovaCandidato() {
           />
         </label>
         <button type="submit" disabled={disabledInput} >Salvar</button>
+        </ContentWrapper>
       </form>
-      
-    </Wrapper>
+      </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  width: 22vw;
-  height: 25vh;
+  width: 28vw;
+  height: 35vh;
   border-radius: 1rem;
-  border: 1px solid yellow;
 
-  background-color: green;
-  margin: 5rem 2rem;
+  background-color: rgb(60, 92, 16);
+  display: flex;
+  justify-content: center;
+
+  h3{
+    text-align: center;
+    margin-top: 0.5rem;
+    color: white;
+  }
+`;
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  input{
+    border: none;
+    border-radius: 2px;
+    margin-bottom:5px;   
+  }
+
+  button{
+    width: 5rem;
+    height: 1.5rem;
+    background-color:white;
+    border: none;
+    border-radius: 5px;
+    
+  }
 `;

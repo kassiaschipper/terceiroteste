@@ -54,7 +54,7 @@ table {
 
 body {
 	font-family: 'Lato', sans-serif;
-	background-color: #333333;
+	background-color: #F4F4F4;
 }
 `;
 export default GlobalStyle;
